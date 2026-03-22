@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oliseh Ifeanyi — Creative Professional</title>
+<meta name="description" content="Portfolio of Oliseh Ifeanyi — Print Graphic Designer, Academic Writer, and QC/QA Analyst based in Nigeria.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0A0908; --ink2:#141210; --ink3:#1E1A16;
+  --gold:#C49A3C; --gold-l:#DDB96A; --gold-d:#8B6820;
+  --blue:#1a3a5c; --blue-l:#2d6099;
+  --cream:#EDE5D4; --mist:#7A7060;
+  --rule:rgba(196,154,60,.12); --rule2:rgba(100,140,200,.12);
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'DM Sans',sans-serif; --mono:'DM Mono',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--ink);color:var(--cream);font-family:var(--sans);
+  font-weight:300;line-height:1.6;overflow-x:hidden;min-height:100vh;}
+
+/* ── CANVAS ── */
+#bg-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;}
+
+/* ── WRAPPER ── */
+.page{position:relative;z-index:1;min-height:100vh;
+  display:flex;flex-direction:column;justify-content:space-between;
+  padding:0 48px;}
+
+/* ── TOP NAV ── */
+.top-bar{display:flex;align-items:center;justify-content:space-between;
+  padding:28px 0;border-bottom:1px solid var(--rule);}
+.logo{font-family:var(--serif);font-size:1.1rem;font-weight:600;
+  color:var(--cream);text-decoration:none;}
+.logo span{color:var(--gold);font-style:italic;}
+.top-links{display:flex;gap:24px;align-items:center;}
+.top-link{font-size:.65rem;font-weight:500;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--mist);text-decoration:none;transition:color .2s;}
+.top-link:hover{color:var(--cream);}
+.top-contact{font-size:.65rem;font-weight:500;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--gold);text-decoration:none;
+  border:1px solid rgba(196,154,60,.3);padding:7px 16px;transition:all .2s;}
+.top-contact:hover{background:rgba(196,154,60,.08);}
+
+/* ── HERO ── */
+.hero{flex:1;display:flex;flex-direction:column;justify-content:center;
+  padding:60px 0;}
+
+.hero-eyebrow{font-size:.62rem;font-weight:500;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--gold);display:flex;align-items:center;
+  gap:12px;margin-bottom:20px;}
+.hero-eyebrow::before{content:'';width:24px;height:1px;background:var(--gold);}
+
+.hero-name{font-family:var(--serif);font-weight:300;
+  font-size:clamp(56px,9vw,130px);line-height:.88;letter-spacing:-.025em;
+  margin-bottom:24px;}
+.hero-name .ln{display:block;overflow:hidden;}
+.hero-name .ln span{display:block;}
+.anim .hero-name .ln span{opacity:0;transform:translateY(110%);}
+.anim .hero-name .ln:nth-child(1) span{animation:lUp 1s cubic-bezier(.16,1,.3,1) .35s forwards;}
+.anim .hero-name .ln:nth-child(2) span{animation:lUp 1s cubic-bezier(.16,1,.3,1) .5s forwards;}
+.hero-name em{font-style:italic;color:var(--gold-l);}
+
+.hero-roles{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:36px;}
+.role-tag{font-size:.66rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;
+  padding:6px 14px;border:1px solid var(--rule);color:var(--mist);transition:all .3s;}
+.role-tag:hover{border-color:rgba(196,154,60,.4);color:var(--gold);}
+.role-tag.active{border-color:rgba(196,154,60,.5);color:var(--gold);
+  background:rgba(196,154,60,.06);}
+
+.hero-desc{font-size:.95rem;color:var(--mist);max-width:480px;
+  line-height:1.8;border-left:2px solid var(--rule);padding-left:18px;}
+
+/* ── PORTFOLIO CARDS ── */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin:48px 0;}
+
+.card{background:var(--ink2);border:1px solid var(--rule);
+  padding:36px;text-decoration:none;
+  position:relative;overflow:hidden;transition:border-color .3s,background .3s;
+  display:flex;flex-direction:column;}
+.card::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;
+  transform:scaleX(0);transform-origin:left;transition:transform .4s;}
+.card:hover::before{transform:scaleX(1);}
+.card:hover{background:var(--ink3);}
+.card.design::before{background:var(--gold);}
+.card.design:hover{border-color:rgba(196,154,60,.4);}
+.card.writing::before{background:var(--blue-l);}
+.card.writing:hover{border-color:rgba(45,96,153,.4);}
+.card.cv::before{background:var(--mist);}
+.card.cv:hover{border-color:rgba(122,112,96,.5);}
+
+.card-num{font-family:var(--mono);font-size:.7rem;color:var(--mist);
+  letter-spacing:.1em;margin-bottom:20px;}
+.card-icon{font-size:2rem;margin-bottom:16px;display:block;}
+.card-title{font-family:var(--serif);font-size:1.5rem;font-weight:600;
+  color:var(--cream);line-height:1.1;margin-bottom:10px;}
+.card-desc{font-size:.82rem;color:var(--mist);line-height:1.75;flex:1;margin-bottom:20px;}
+.card-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:20px;}
+.ctag{font-size:.58rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;
+  padding:3px 8px;border:1px solid var(--rule);color:var(--mist);}
+.card-cta{font-size:.65rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;
+  display:flex;align-items:center;gap:8px;transition:gap .25s;}
+.card.design .card-cta{color:var(--gold);}
+.card.writing .card-cta{color:var(--blue-l);}
+.card.cv .card-cta{color:var(--mist);}
+.card:hover .card-cta{gap:14px;}
+.card-cta::after{content:'→';font-family:var(--serif);font-size:1rem;}
+
+/* ── BOTTOM STATS BAR ── */
+.stats-bar{display:flex;gap:0;border-top:1px solid var(--rule);
+  border-bottom:1px solid var(--rule);padding:18px 0;margin-bottom:24px;}
+.stat{flex:1;text-align:center;border-right:1px solid var(--rule);}
+.stat:last-child{border-right:none;}
+.stat-n{font-family:var(--serif);font-size:1.6rem;font-weight:600;color:var(--cream);display:block;}
+.stat-l{font-size:.58rem;font-weight:500;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--mist);}
+
+/* ── FOOTER ── */
+.bottom-bar{display:flex;align-items:center;justify-content:space-between;
+  padding:20px 0;border-top:1px solid var(--rule);flex-wrap:wrap;gap:12px;}
+.bottom-bar p{font-size:.68rem;color:var(--mist);}
+.bot-links{display:flex;gap:20px;}
+.bot-links a{font-size:.62rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--mist);text-decoration:none;transition:color .2s;}
+.bot-links a:hover{color:var(--gold);}
+
+/* ── REVEAL ── */
+.rv{opacity:1;transform:none;transition:opacity .65s ease,transform .65s cubic-bezier(.16,1,.3,1);}
+.anim .rv{opacity:0;transform:translateY(20px);}
+.rv.vis,.anim .rv.vis{opacity:1;transform:none;}
+.rv.d1{transition-delay:.1s;}.rv.d2{transition-delay:.2s;}
+.rv.d3{transition-delay:.3s;}.rv.d4{transition-delay:.4s;}
+
+/* ── KEYFRAMES ── */
+@keyframes lUp{from{opacity:0;transform:translateY(110%);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .page{padding:0 22px;}
+  .cards{grid-template-columns:1fr;}
+  .top-links{display:none;}
+  .stats-bar{flex-wrap:wrap;}
+  .stat{min-width:50%;border-bottom:1px solid var(--rule);padding:12px 0;}
+  .stat:nth-child(3),.stat:nth-child(4){border-bottom:none;}
+}
+</style>
+</head>
+<body>
+
+<canvas id="bg-canvas"></canvas>
+
+<div class="page">
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <a href="#" class="logo">Studio<span>Oliseh</span></a>
+    <div class="top-links">
+      <a href="#portfolios" class="top-link">Portfolios</a>
+      <a href="oliseh-cv.html" class="top-link">CV</a>
+      <a href="https://github.com/Iosify" target="_blank" rel="noopener" class="top-link">GitHub</a>
+      <a href="https://linkedin.com/in/iosify" target="_blank" rel="noopener" class="top-link">LinkedIn</a>
+    </div>
+    <a href="mailto:ioliseh@gmail.com" class="top-contact">ioliseh@gmail.com</a>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-eyebrow rv">Available for projects &middot; 2025</div>
+    <h1 class="hero-name">
+      <span class="ln"><span>Oliseh</span></span>
+      <span class="ln"><span><em>Ifeanyi.</em></span></span>
+    </h1>
+    <div class="hero-roles rv d1">
+      <span class="role-tag active">Print Graphic Designer</span>
+      <span class="role-tag">Academic Writer</span>
+      <span class="role-tag">QC/QA Analyst</span>
+      <span class="role-tag">AI Animation</span>
+      <span class="role-tag">Virtual Assistant</span>
+      <span class="role-tag">Brand Strategist</span>
+    </div>
+    <p class="hero-desc rv d2">Cross-disciplinary creative professional based in Nigeria. I build brands, write research, ensure quality, and animate ideas into life. Select a portfolio below to see my work.</p>
+  </div>
+
+  <!-- PORTFOLIO CARDS -->
+  <div id="portfolios" class="cards">
+
+    <a href="oliseh-portfolio.html" class="card design rv">
+      <span class="card-num">01 /</span>
+      <span class="card-icon">🎨</span>
+      <div class="card-title">Design<br>Portfolio</div>
+      <p class="card-desc">Logo design, brand identity, e-posters, flex banners, AI animation, and brand mockups. 50+ projects for clients across Nigeria.</p>
+      <div class="card-tags">
+        <span class="ctag">Logo Design</span>
+        <span class="ctag">Brand Identity</span>
+        <span class="ctag">AI Animation</span>
+        <span class="ctag">Print</span>
+      </div>
+      <div class="card-cta">View Design Work</div>
+    </a>
+
+    <a href="oliseh-writing-portfolio.html" class="card writing rv d1">
+      <span class="card-num">02 /</span>
+      <span class="card-icon">✍️</span>
+      <div class="card-title">Writing<br>Portfolio</div>
+      <p class="card-desc">Academic research, creative narratives, philosophical essays, linguistics analysis, and business proposals. Zero plagiarism guaranteed.</p>
+      <div class="card-tags">
+        <span class="ctag">Research</span>
+        <span class="ctag">APA / Harvard</span>
+        <span class="ctag">Creative Writing</span>
+        <span class="ctag">Proposals</span>
+      </div>
+      <div class="card-cta">View Writing Work</div>
+    </a>
+
+    <a href="oliseh-cv.html" class="card cv rv d2">
+      <span class="card-num">03 /</span>
+      <span class="card-icon">📄</span>
+      <div class="card-title">CV &amp;<br>Experience</div>
+      <p class="card-desc">Full career history, skills, certifications including Digital Witch IT Skills Training (2026), and references. PDF download available.</p>
+      <div class="card-tags">
+        <span class="ctag">QC/QA Analyst</span>
+        <span class="ctag">ISO 9001:2015</span>
+        <span class="ctag">Virtual Assistance</span>
+        <span class="ctag">Freelance</span>
+      </div>
+      <div class="card-cta">View Full CV</div>
+    </a>
+
+  </div>
+
+  <!-- STATS BAR -->
+  <div class="stats-bar rv d3">
+    <div class="stat"><span class="stat-n" data-target="4" data-suffix="+">0</span><span class="stat-l">Years Experience</span></div>
+    <div class="stat"><span class="stat-n" data-target="50" data-suffix="+">0</span><span class="stat-l">Projects Delivered</span></div>
+    <div class="stat"><span class="stat-n" data-target="40" data-suffix="+">0</span><span class="stat-l">Happy Clients</span></div>
+    <div class="stat"><span class="stat-n" data-target="30" data-suffix="+">0</span><span class="stat-l">Papers Written</span></div>
+    <div class="stat"><span class="stat-n">0%</span><span class="stat-l">Plagiarism</span></div>
+  </div>
+
+  <!-- BOTTOM BAR -->
+  <div class="bottom-bar">
+    <p>&copy; 2025 Oliseh Ifeanyi &nbsp;&middot;&nbsp; Sango Ota, Ogun State, Nigeria</p>
+    <div class="bot-links">
+      <a href="mailto:ioliseh@gmail.com">ioliseh@gmail.com</a>
+      <a href="tel:+2348061349287">+234 806 134 9287</a>
+      <a href="https://linkedin.com/in/iosify" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/Iosify" target="_blank" rel="noopener">GitHub</a>
+      <a href="Oliseh-Ifeanyi-CV-2025.pdf" download>Download CV</a>
+    </div>
+  </div>
+
+</div>
+
+<script>
+document.body.classList.add('anim');
+
+// Background canvas
+(function(){
+  var c=document.getElementById('bg-canvas'),ctx=c.getContext('2d');
+  function sz(){c.width=window.innerWidth;c.height=window.innerHeight;}sz();
+  window.addEventListener('resize',sz);
+  var pts=[];
+  for(var i=0;i<65;i++)pts.push({
+    x:Math.random()*c.width,y:Math.random()*c.height,
+    vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35
+  });
+  function draw(){
+    ctx.clearRect(0,0,c.width,c.height);
+    pts.forEach(function(p){
+      p.x+=p.vx;p.y+=p.vy;
+      if(p.x<0||p.x>c.width)p.vx*=-1;
+      if(p.y<0||p.y>c.height)p.vy*=-1;
+      ctx.beginPath();ctx.arc(p.x,p.y,1.4,0,Math.PI*2);
+      ctx.fillStyle='rgba(196,154,60,.28)';ctx.fill();
+    });
+    for(var i=0;i<pts.length;i++){
+      for(var j=i+1;j<pts.length;j++){
+        var d=Math.hypot(pts[i].x-pts[j].x,pts[i].y-pts[j].y);
+        if(d<120){
+          ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);
+          ctx.strokeStyle='rgba(196,154,60,'+(0.14*(1-d/120))+')';
+          ctx.lineWidth=.5;ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+// Stat counters
+(function(){
+  function runCounter(el){
+    var tgt=parseInt(el.dataset.target),sfx=el.dataset.suffix||'',cur=0,step=Math.max(tgt/55,.1);
+    var t=setInterval(function(){
+      cur+=step;
+      if(cur>=tgt){el.textContent=tgt+sfx;clearInterval(t);}
+      else el.textContent=Math.floor(cur)+sfx;
+    },28);
+  }
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){runCounter(e.target);obs.unobserve(e.target);}
+    });
+  },{threshold:0.1,rootMargin:'0px 0px -20px 0px'});
+  document.querySelectorAll('.stat-n[data-target]').forEach(function(el){obs.observe(el);});
+})();
+
+// Scroll reveal
+(function(){
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('vis');});
+  },{threshold:0,rootMargin:'0px 0px -30px 0px'});
+  document.querySelectorAll('.rv').forEach(function(el){obs.observe(el);});
+})();
+</script>
+</body>
+</html>

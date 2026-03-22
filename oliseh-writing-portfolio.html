@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oliseh Ifeanyi — Academic Writer & Creative Strategist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+/* ── DARK DESIGN TOKENS ── */
+:root{
+  --ink:#0C0B09; --ink2:#161412; --ink3:#201C18;
+  --blue:#1a3a5c; --blue-l:#2d6099; --blue-m:#1e4d7a;
+  --gold:#C49A3C; --gold-l:#DDB96A; --gold-d:#8B6820;
+  --cream:#EDE5D4; --mist:#7A7060; --rule:rgba(100,140,200,.14);
+  --rule2:rgba(196,154,60,.13); --cream2:rgba(237,229,212,.65);
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'DM Sans',sans-serif; --mono:'DM Mono',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--ink);color:var(--cream);font-family:var(--sans);font-weight:300;line-height:1.7;overflow-x:hidden;}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;
+  background:rgba(12,11,9,.92);backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--rule);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:17px 48px;transition:padding .3s;}
+.nl{font-family:var(--serif);font-size:1.05rem;font-weight:600;color:var(--cream);text-decoration:none;}
+.nl span{color:var(--gold);font-style:italic;}
+.nm{display:flex;gap:28px;list-style:none;}
+.nm a{font-size:.68rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--mist);text-decoration:none;transition:color .2s;position:relative;}
+.nm a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;
+  background:var(--blue-l);transition:width .3s;}
+.nm a:hover{color:var(--cream);}
+.nm a:hover::after{width:100%;}
+.nav-r{display:flex;align-items:center;gap:8px;}
+.nav-sw{font-size:.65rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--gold);text-decoration:none;border:1px solid rgba(196,154,60,.3);
+  padding:7px 14px;transition:all .2s;}
+.nav-sw:hover{background:rgba(196,154,60,.1);}
+.nav-hire{font-size:.68rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;
+  color:white;background:var(--blue);padding:9px 20px;text-decoration:none;
+  border:1px solid var(--blue-l);transition:background .2s;}
+.nav-hire:hover{background:var(--blue-l);}
+
+/* ── HERO ── */
+.hero{min-height:100vh;display:flex;flex-direction:column;
+  justify-content:flex-end;padding:0 48px 56px;
+  position:relative;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;
+  background:radial-gradient(ellipse at 80% 20%,rgba(45,96,153,.1) 0%,transparent 55%),
+             radial-gradient(ellipse at 10% 80%,rgba(196,154,60,.06) 0%,transparent 45%);}
+.hero-canvas{position:absolute;inset:0;pointer-events:none;z-index:0;}
+
+/* Orb blobs */
+.orb{position:absolute;border-radius:50%;filter:blur(70px);pointer-events:none;}
+.orb1{width:380px;height:380px;background:rgba(45,96,153,.07);top:-60px;right:-40px;
+  animation:orbF 10s ease-in-out infinite;}
+.orb2{width:260px;height:260px;background:rgba(196,154,60,.05);bottom:80px;left:-60px;
+  animation:orbF 10s ease-in-out -5s infinite;}
+
+.hero-content{position:relative;z-index:2;}
+.hero-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:22px;}
+.anim .hero-tags{opacity:0;animation:fadeUp .8s ease .2s forwards;}
+.htag{font-size:.6rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;
+  padding:4px 11px;border:1px solid rgba(100,130,180,.3);color:var(--mist);}
+.htag.gold{border-color:rgba(196,154,60,.38);color:var(--gold);}
+.htag.blue{border-color:rgba(45,96,153,.4);color:var(--blue-l);}
+
+.hero-title{font-family:var(--serif);font-weight:300;
+  font-size:clamp(44px,7.5vw,102px);line-height:.88;letter-spacing:-.02em;margin-bottom:20px;}
+.hero-title .ln{display:block;overflow:hidden;}
+.hero-title .ln span{display:block;}
+.anim .hero-title .ln span{opacity:0;transform:translateY(110%);}
+.anim .hero-title .ln:nth-child(1) span{animation:lUp 1s cubic-bezier(.16,1,.3,1) .38s forwards;}
+.anim .hero-title .ln:nth-child(2) span{animation:lUp 1s cubic-bezier(.16,1,.3,1) .52s forwards;}
+.anim .hero-title .ln:nth-child(3) span{animation:lUp 1s cubic-bezier(.16,1,.3,1) .66s forwards;}
+.hero-title em{font-style:italic;color:var(--blue-l);}
+.hero-title strong{font-weight:300;color:var(--gold-l);}
+
+.hero-sub{font-size:.9rem;color:var(--mist);max-width:440px;line-height:1.8;
+  margin-bottom:30px;border-left:2px solid rgba(196,154,60,.3);padding-left:16px;}
+.anim .hero-sub{opacity:0;animation:fadeUp .8s ease .85s forwards;}
+.hero-ctas{display:flex;gap:10px;flex-wrap:wrap;}
+.anim .hero-ctas{opacity:0;animation:fadeUp .8s ease 1.05s forwards;}
+.btn-p{display:inline-flex;align-items:center;gap:8px;padding:12px 26px;
+  font-size:.7rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;
+  text-decoration:none;background:var(--blue);color:white;
+  border:1px solid var(--blue-l);transition:all .2s;}
+.btn-p:hover{background:var(--blue-l);transform:translateY(-1px);}
+.btn-o{display:inline-flex;align-items:center;gap:8px;padding:12px 26px;
+  font-size:.7rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;
+  text-decoration:none;border:1px solid rgba(196,154,60,.3);color:var(--cream);transition:all .2s;}
+.btn-o:hover{border-color:var(--gold);color:var(--gold);}
+
+.hero-stats{margin-top:44px;display:flex;gap:0;
+  border-top:1px solid rgba(100,140,200,.15);padding-top:18px;}
+.hst{flex:1;text-align:center;border-right:1px solid var(--rule);}
+.hst:last-child{border-right:none;}
+.hst-n{font-family:var(--serif);font-size:1.75rem;font-weight:600;color:var(--cream);display:block;}
+.hst-l{font-size:.58rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--mist);}
+
+/* ── MARQUEE ── */
+.mq{overflow:hidden;padding:12px 0;background:var(--ink2);
+  border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);}
+.mqt{display:flex;animation:marquee 26s linear infinite;width:max-content;}
+.mqi{font-family:var(--serif);font-size:.95rem;font-style:italic;color:var(--mist);
+  white-space:nowrap;padding:0 24px;display:flex;align-items:center;gap:24px;}
+.mqi::after{content:'·';color:var(--blue-l);}
+
+/* ── SHARED SECTION ── */
+section{padding:80px 48px;}
+.sl{font-size:.62rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--gold);display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+.sl::before{content:'';width:20px;height:1px;background:var(--gold);}
+.st{font-family:var(--serif);font-size:clamp(30px,4vw,50px);font-weight:300;
+  line-height:1.05;color:var(--cream);}
+.st em{font-style:italic;color:var(--blue-l);}
+.sec-desc{font-size:.88rem;color:var(--mist);max-width:520px;line-height:1.85;margin-top:12px;}
+
+/* ── ABOUT ── */
+#about{background:var(--ink2);border-top:1px solid var(--rule);}
+.ag{display:grid;grid-template-columns:1fr 1.3fr;gap:64px;align-items:start;margin-top:48px;}
+.about-quote{font-family:var(--serif);font-size:1.3rem;font-style:italic;
+  color:var(--cream);line-height:1.55;border-left:2px solid var(--blue-l);
+  padding-left:20px;margin-bottom:22px;}
+.abody{font-size:.87rem;color:var(--cream2);line-height:1.9;margin-bottom:14px;}
+.about-pills{display:flex;flex-wrap:wrap;gap:7px;margin-top:22px;}
+.pill{font-size:.62rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;
+  padding:6px 13px;border:1px solid var(--rule);color:var(--mist);transition:all .25s;}
+.pill:hover{border-color:rgba(196,154,60,.4);color:var(--gold);}
+.about-edge{background:var(--ink3);border:1px solid var(--rule);padding:22px 24px;margin-bottom:18px;position:relative;}
+.about-edge::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--blue-l);}
+.edge-lbl{font-size:.6rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--blue-l);margin-bottom:7px;}
+.edge-txt{font-size:.87rem;color:var(--mist);line-height:1.75;}
+.spec-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;}
+.spec-box{background:var(--ink3);border:1px solid var(--rule);padding:14px 15px;}
+.spec-lbl{font-size:.58rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--mist);margin-bottom:4px;}
+.spec-val{font-size:.83rem;color:var(--cream);}
+
+/* ── WORK ── */
+#work{background:var(--ink);}
+.work-list{margin-top:44px;display:flex;flex-direction:column;gap:2px;}
+
+.wk{background:var(--ink2);border:1px solid var(--rule);
+  transition:border-color .25s,background .25s;}
+.wk:hover{border-color:rgba(45,96,153,.4);background:var(--ink3);}
+.wk-top{padding:30px 34px 0;display:grid;grid-template-columns:1fr 52px;gap:14px;}
+.wk-body{padding:0 34px 30px;}
+.wk-num{font-family:var(--mono);font-size:3.2rem;color:rgba(100,140,200,.08);
+  line-height:1;text-align:right;user-select:none;}
+
+.wk-badge{font-size:.57rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;
+  padding:4px 11px;display:inline-block;margin-bottom:10px;border:1px solid;}
+.badge-research{color:var(--blue-l);border-color:rgba(45,96,153,.35);background:rgba(45,96,153,.08);}
+.badge-narrative{color:var(--gold);border-color:rgba(196,154,60,.3);background:rgba(196,154,60,.06);}
+.badge-essay{color:#7BC47F;border-color:rgba(100,180,100,.25);background:rgba(100,180,100,.05);}
+.badge-proposal{color:#D4904A;border-color:rgba(210,140,70,.28);background:rgba(210,140,70,.05);}
+.badge-linguistics{color:#C47BC4;border-color:rgba(190,100,190,.25);background:rgba(190,100,190,.05);}
+
+.wk-title{font-family:var(--serif);font-size:clamp(18px,2.2vw,26px);font-weight:600;
+  color:var(--cream);line-height:1.15;margin-bottom:4px;}
+.wk-sub{font-size:.74rem;color:var(--mist);margin-bottom:14px;}
+.wk-divider{height:1px;background:var(--rule);margin:14px 0;}
+.wk-quote{font-family:var(--serif);font-size:1rem;font-style:italic;
+  color:rgba(237,229,212,.7);line-height:1.65;
+  border-left:2px solid rgba(45,96,153,.35);padding-left:16px;margin-bottom:16px;}
+.wk-desc{font-size:.86rem;color:var(--mist);line-height:1.82;margin-bottom:20px;}
+.wk-pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;}
+.pillar{background:var(--ink);border:1px solid var(--rule);padding:12px 13px;}
+.pillar-lbl{font-size:.57rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--mist);margin-bottom:4px;}
+.pillar-val{font-size:.81rem;color:var(--cream2);}
+
+.wk-status{display:inline-flex;align-items:center;gap:5px;font-size:.62rem;
+  font-weight:500;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--blue-l);margin-bottom:12px;}
+.wk-status::before{content:'';width:5px;height:5px;
+  background:var(--blue-l);border-radius:50%;animation:blink 2s ease-in-out infinite;}
+
+/* ── SKILLS ── */
+#skills{background:var(--ink2);border-top:1px solid var(--rule);}
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:44px;}
+.sk{background:var(--ink3);padding:26px;border:1px solid var(--rule);
+  position:relative;overflow:hidden;transition:background .25s;}
+.sk::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
+  background:linear-gradient(to right,var(--blue),var(--blue-l));
+  transform:scaleX(0);transform-origin:left;transition:transform .4s;}
+.sk:hover::after{transform:scaleX(1);}
+.sk:hover{background:var(--ink2);}
+.sk-icon{font-size:1.6rem;margin-bottom:11px;}
+.sk-cat{font-family:var(--serif);font-size:1.05rem;font-weight:600;color:var(--cream);margin-bottom:10px;}
+.sk-items{display:flex;flex-direction:column;gap:6px;}
+.sk-item{font-size:.81rem;color:var(--mist);display:flex;align-items:center;gap:7px;}
+.sk-item::before{content:'';width:3px;height:3px;background:var(--blue-l);border-radius:50%;flex-shrink:0;}
+
+/* ── CONTACT ── */
+#contact{background:var(--ink);position:relative;overflow:hidden;}
+#ccanvas{position:absolute;inset:0;pointer-events:none;}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-top:44px;}
+.contact-big{font-family:var(--serif);font-size:clamp(32px,4.5vw,58px);
+  font-weight:300;line-height:.95;letter-spacing:-.02em;
+  color:var(--cream);margin-bottom:16px;position:relative;z-index:1;}
+.contact-big em{font-style:italic;color:var(--blue-l);}
+.contact-sub{font-size:.87rem;color:var(--mist);line-height:1.8;
+  margin-bottom:28px;max-width:380px;position:relative;z-index:1;}
+.contact-links{display:flex;flex-direction:column;gap:2px;position:relative;z-index:1;}
+.clink{display:flex;flex-direction:column;padding:15px 18px;
+  background:var(--ink2);border:1px solid var(--rule);
+  text-decoration:none;transition:all .2s;}
+.clink:hover{border-color:rgba(45,96,153,.5);background:var(--ink3);}
+.clink-lbl{font-size:.58rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--blue-l);margin-bottom:3px;}
+.clink-val{font-size:.9rem;color:var(--cream);}
+.interests{background:var(--ink2);border:1px solid var(--rule);padding:26px;position:relative;z-index:1;}
+.int-title{font-family:var(--serif);font-size:1.05rem;color:var(--cream);margin-bottom:14px;}
+.int-list{display:flex;flex-direction:column;gap:9px;}
+.int-item{font-size:.84rem;color:var(--mist);display:flex;align-items:flex-start;gap:9px;}
+.int-item::before{content:'→';color:var(--gold);font-family:var(--serif);flex-shrink:0;}
+
+/* ── FOOTER ── */
+footer{background:var(--ink2);padding:22px 48px;display:flex;
+  align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;
+  border-top:1px solid var(--rule);}
+footer p{font-size:.68rem;color:var(--mist);}
+.f-links{display:flex;gap:18px;}
+.f-links a{font-size:.63rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--mist);text-decoration:none;transition:color .2s;}
+.f-links a:hover{color:var(--gold);}
+
+/* ── REVEAL ── */
+.rv{opacity:1;transform:none;transition:opacity .65s ease,transform .65s cubic-bezier(.16,1,.3,1);}
+.anim .rv{opacity:0;transform:translateY(22px);}
+.rv.vis,.anim .rv.vis{opacity:1;transform:none;}
+.rv.d1{transition-delay:.1s;}.rv.d2{transition-delay:.2s;}
+.rv.d3{transition-delay:.3s;}.rv.d4{transition-delay:.4s;}
+
+/* ── KEYFRAMES ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+@keyframes lUp{from{opacity:0;transform:translateY(110%);}to{opacity:1;transform:translateY(0);}}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:.25;}}
+@keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+@keyframes orbF{0%,100%{transform:translate(0,0);}50%{transform:translate(22px,-16px);}}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  nav{padding:13px 22px;}.nm{display:none;}
+  section{padding:56px 22px;}.hero{padding:0 22px 48px;}
+  .ag,.contact-grid{grid-template-columns:1fr;gap:32px;}
+  .skills-grid{grid-template-columns:1fr 1fr;}
+  .wk-top{grid-template-columns:1fr;}.wk-num{display:none;}
+  .wk-pillars{grid-template-columns:1fr;}
+  footer{padding:18px 22px;}
+}
+@media(max-width:500px){.skills-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<nav id="wnav">
+  <a href="#" class="nl">Studio<span>Oliseh</span></a>
+  <ul class="nm">
+    <li><a href="#about">About</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-r">
+    <a href="oliseh-portfolio.html" class="nav-sw">🎨 Design Portfolio</a>
+    <a href="#contact" class="nav-hire">Hire Me</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <canvas class="hero-canvas" id="hcanvas"></canvas>
+  <div class="hero-content">
+    <div class="hero-tags">
+      <span class="htag">Physicist</span>
+      <span class="htag">Poet</span>
+      <span class="htag">Graphic Designer</span>
+      <span class="htag">QC/QA Analyst</span>
+      <span class="htag gold">Academic Writer</span>
+      <span class="htag blue">Creative Strategist</span>
+    </div>
+    <h1 class="hero-title">
+      <span class="ln"><span>Academic</span></span>
+      <span class="ln"><span>Writer &amp; <em>Creative</em></span></span>
+      <span class="ln"><span>Strategist.</span></span>
+    </h1>
+    <p class="hero-sub">Producing rigorous research, literary work, and brand narratives. I help brands and people turn complex ideas into compelling stories, blending scientific rigour with emotional depth.</p>
+    <div class="hero-ctas">
+      <a href="#work" class="btn-p">View Work</a>
+      <a href="#contact" class="btn-o">Book a Strategy Call</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hst"><span class="hst-n" data-target="4" data-suffix="+">0</span><span class="hst-l">Years Writing</span></div>
+      <div class="hst"><span class="hst-n" data-target="5">0</span><span class="hst-l">Disciplines</span></div>
+      <div class="hst"><span class="hst-n" data-target="3">0</span><span class="hst-l">Citation Styles</span></div>
+      <div class="hst"><span class="hst-n" data-target="100" data-suffix="%">0</span><span class="hst-l">Zero Plagiarism</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="mq"><div class="mqt" aria-hidden="true">
+  <div class="mqi">Academic Writing</div><div class="mqi">Research &amp; Analysis</div>
+  <div class="mqi">Linguistics &amp; Pragmatics</div><div class="mqi">Poetry &amp; Verse</div>
+  <div class="mqi">Business Proposals</div><div class="mqi">Brand Narratives</div>
+  <div class="mqi">APA &amp; Harvard Style</div><div class="mqi">Creative Storytelling</div>
+  <div class="mqi">Content Strategy</div><div class="mqi">Neurodiversity Research</div>
+  <div class="mqi">Academic Writing</div><div class="mqi">Research &amp; Analysis</div>
+  <div class="mqi">Linguistics &amp; Pragmatics</div><div class="mqi">Poetry &amp; Verse</div>
+  <div class="mqi">Business Proposals</div><div class="mqi">Brand Narratives</div>
+  <div class="mqi">APA &amp; Harvard Style</div><div class="mqi">Creative Storytelling</div>
+  <div class="mqi">Content Strategy</div><div class="mqi">Neurodiversity Research</div>
+</div></div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="sl rv">About Me</div>
+  <h2 class="st rv d1">The mind behind <em>the work</em></h2>
+  <div class="ag">
+    <div class="rv d1">
+      <blockquote class="about-quote">"I am a professional overthinker with a sketchbook and a scientific mind."</blockquote>
+      <p class="abody">My journey spans four interconnected worlds: the precision of physics, the emotion of poetry, the creativity of graphic design, and the rigour of quality assurance.</p>
+      <p class="abody">By day, I navigate equations, research, and QA processes. By night, I break those rules with poetry, design, and food art. This multiplicity isn't a contradiction, it's the essence of who I am.</p>
+      <p class="abody">I believe true innovation happens when disciplines collide, and my work lives in those intersections.</p>
+      <div class="about-pills">
+        <span class="pill">Physicist</span><span class="pill">Poet</span>
+        <span class="pill">Graphic Designer</span><span class="pill">Academic Writer</span>
+        <span class="pill">QC/QA Analyst</span><span class="pill">Food Artist</span>
+      </div>
+    </div>
+    <div class="rv d2">
+      <div class="about-edge">
+        <div class="edge-lbl">Competitive Edge</div>
+        <div class="edge-txt">My background in graphic design and QC/QA means I understand both visual communication and precision. I craft scripts for animations, develop storyboard copy, ensure content looks as good as it reads, and maintain rigorous quality standards across all deliverables.</div>
+      </div>
+      <div class="spec-grid">
+        <div class="spec-box"><div class="spec-lbl">Citation Styles</div><div class="spec-val">APA, Harvard, MLA, Chicago</div></div>
+        <div class="spec-box"><div class="spec-lbl">Specialisations</div><div class="spec-val">Linguistics, Neurodiversity, Brand Strategy</div></div>
+        <div class="spec-box"><div class="spec-lbl">Guarantee</div><div class="spec-val">Zero plagiarism, zero hallucinated citations</div></div>
+        <div class="spec-box"><div class="spec-lbl">Turnaround</div><div class="spec-val">Deadline-driven, always on time</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="work">
+  <div class="sl rv">Featured Work</div>
+  <h2 class="st rv d1">Writing that <em>means something</em></h2>
+  <p class="sec-desc rv d2">Five pieces across research, narrative, philosophy, linguistics, and business, each demonstrating a different dimension of my craft.</p>
+  <div class="work-list">
+
+    <div class="wk rv">
+      <div class="wk-top">
+        <div>
+          <span class="wk-badge badge-research">Research</span>
+          <div class="wk-status">In Progress</div>
+          <div class="wk-title">Leading Neurodiverse Multinational Teams</div>
+          <div class="wk-sub">Organisational Psychology, Cross-Cultural Leadership, Neurodiversity</div>
+        </div>
+        <div class="wk-num">01</div>
+      </div>
+      <div class="wk-body">
+        <div class="wk-divider"></div>
+        <p class="wk-quote">"This research explores how cross-cultural leadership strategies can be systematically adapted to effectively manage neurodiverse individuals within multinational teams. The framework bridges organizational psychology, cultural competence, and neurodiversity awareness."</p>
+        <p class="wk-desc">An in-depth research project developing the Neuro-Cultural Agility Framework, a comprehensive model for inclusive leadership. Bridges organisational psychology, cultural competence, and neurodiversity awareness to produce actionable guidance for modern team leaders.</p>
+        <div class="wk-pillars">
+          <div class="pillar"><div class="pillar-lbl">Challenge</div><div class="pillar-val">Adapting cross-cultural leadership for neurodiverse teams</div></div>
+          <div class="pillar"><div class="pillar-lbl">Output</div><div class="pillar-val">Neuro-Cultural Agility Framework</div></div>
+          <div class="pillar"><div class="pillar-lbl">Goal</div><div class="pillar-val">Thought leadership in organisational psychology</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wk rv">
+      <div class="wk-top">
+        <div>
+          <span class="wk-badge badge-narrative">Narrative</span>
+          <div class="wk-title">An Evening of Contrasts</div>
+          <div class="wk-sub">Creative Storytelling, Urban Realism, Emotional Narrative</div>
+        </div>
+        <div class="wk-num">02</div>
+      </div>
+      <div class="wk-body">
+        <div class="wk-divider"></div>
+        <p class="wk-quote">"The sun dipped low, casting long shadows over the dusty route, as I trudged through the rough scattered road hoping for a 20-min stroll to the bus stop. Each step felt like a reminder of the hustle. But it wasn't until I spotted her, a little girl, not more than 12 years, with striking beauty and radiant melanin amidst the grayness of the evening, that the transformation truly began."</p>
+        <p class="wk-desc">A narrative journey through urban life capturing the complexity of a single evening, blending exhaustion, unexpected joy, a fleeting moment of human connection, and the raw realities of city violence. A symphony of emotions tumbling between weariness and exhilaration.</p>
+        <div class="wk-pillars">
+          <div class="pillar"><div class="pillar-lbl">Challenge</div><div class="pillar-val">Authentic, emotionally resonant urban narrative</div></div>
+          <div class="pillar"><div class="pillar-lbl">Result</div><div class="pillar-val">Featured piece on urban life intersections</div></div>
+          <div class="pillar"><div class="pillar-lbl">Style</div><div class="pillar-val">Lyrical realism, personal essay</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wk rv">
+      <div class="wk-top">
+        <div>
+          <span class="wk-badge badge-essay">Essay</span>
+          <div class="wk-title">Every Choice Carries Weight</div>
+          <div class="wk-sub">Philosophy, Personal Development, Thought Leadership</div>
+        </div>
+        <div class="wk-num">03</div>
+      </div>
+      <div class="wk-body">
+        <div class="wk-divider"></div>
+        <p class="wk-quote">"We are taught that freedom is the absence of constraint. But what if the opposite is true? What if the most meaningful choices are those that bind us, to a practice, a person, a purpose? The paradox of choosing our own struggles is that they become the architecture of our identity."</p>
+        <p class="wk-desc">A reflective essay on the paradox of choosing struggles and how constraints shape our growth. Written to establish thought leadership in philosophical and personal development content, resonating with readers navigating complex personal and professional decisions.</p>
+        <div class="wk-pillars">
+          <div class="pillar"><div class="pillar-lbl">Theme</div><div class="pillar-val">Freedom, constraint, and identity formation</div></div>
+          <div class="pillar"><div class="pillar-lbl">Audience</div><div class="pillar-val">Professionals navigating personal decisions</div></div>
+          <div class="pillar"><div class="pillar-lbl">Goal</div><div class="pillar-val">Philosophical thought leadership content</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wk rv">
+      <div class="wk-top">
+        <div>
+          <span class="wk-badge badge-linguistics">Linguistics</span>
+          <div class="wk-title">Gricean Pragmatics and Non-Conversational Text</div>
+          <div class="wk-sub">Linguistics, Pragmatics, Academic Essay, Master's Level</div>
+        </div>
+        <div class="wk-num">04</div>
+      </div>
+      <div class="wk-body">
+        <div class="wk-divider"></div>
+        <p class="wk-quote">"H. P. Grice's Cooperative Principle has long been confined to conversational analysis. Yet the principle's core insight, that meaning emerges through shared communicative intent, applies equally to literary texts, legal documents, and digital communication."</p>
+        <p class="wk-desc">A critical reassessment of Grice's Cooperative Principle and its application to non-conversational texts including literary works, academic discourse, legal documents, and digital media. Master's-level analysis expanding pragmatic theory beyond dialogue to illuminate meaning-making in all textual forms.</p>
+        <div class="wk-pillars">
+          <div class="pillar"><div class="pillar-lbl">Level</div><div class="pillar-val">Master's Degree, Linguistics Department</div></div>
+          <div class="pillar"><div class="pillar-lbl">Scope</div><div class="pillar-val">Literary, legal, academic, digital texts</div></div>
+          <div class="pillar"><div class="pillar-lbl">Contribution</div><div class="pillar-val">Extended Gricean theory to non-conversational contexts</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wk rv">
+      <div class="wk-top">
+        <div>
+          <span class="wk-badge badge-proposal">Business Proposal</span>
+          <div class="wk-title">Fluffy Treats by Lydia — Business Proposal</div>
+          <div class="wk-sub">Business Strategy, Brand Positioning, Entrepreneurship</div>
+        </div>
+        <div class="wk-num">05</div>
+      </div>
+      <div class="wk-body">
+        <div class="wk-divider"></div>
+        <p class="wk-quote">"Fluffy Treats by Lydia isn't just a confectionery brand, it's a statement about the intersection of culinary art and design. Each handcrafted treat is positioned as a collectible object, a moment of intentional indulgence in an age of mass production."</p>
+        <p class="wk-desc">A comprehensive business proposal for a premium confectionery brand specialising in artisanal, handcrafted treats. Covers market opportunity, production strategy, and brand narrative, demonstrating strategic business communication, brand positioning, and market differentiation.</p>
+        <div class="wk-pillars">
+          <div class="pillar"><div class="pillar-lbl">Challenge</div><div class="pillar-val">Attract investors to a premium artisan brand</div></div>
+          <div class="pillar"><div class="pillar-lbl">Output</div><div class="pillar-val">Strategic proposal with market and production plan</div></div>
+          <div class="pillar"><div class="pillar-lbl">Result</div><div class="pillar-val">Established clear market differentiation</div></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="sl rv">Expertise</div>
+  <h2 class="st rv d1">Skills &amp; <em>Competencies</em></h2>
+  <p class="sec-desc rv d2">Six interlocking disciplines that combine to make every deliverable precise, creative, and purpose-built.</p>
+  <div class="skills-grid">
+    <div class="sk rv"><div class="sk-icon">📚</div><div class="sk-cat">Academic &amp; Research</div><div class="sk-items"><div class="sk-item">Linguistics &amp; Pragmatics</div><div class="sk-item">Neurodiversity Research</div><div class="sk-item">Cross-Cultural Leadership</div><div class="sk-item">APA, Harvard, MLA, Chicago</div><div class="sk-item">Zero Plagiarism Policy</div></div></div>
+    <div class="sk rv d1"><div class="sk-icon">✍️</div><div class="sk-cat">Creative Writing</div><div class="sk-items"><div class="sk-item">Poetry &amp; Verse</div><div class="sk-item">Narrative Storytelling</div><div class="sk-item">Philosophical Essays</div><div class="sk-item">Urban Realism</div><div class="sk-item">Emotional Depth Writing</div></div></div>
+    <div class="sk rv d2"><div class="sk-icon">💼</div><div class="sk-cat">Business &amp; Strategy</div><div class="sk-items"><div class="sk-item">Business Proposals</div><div class="sk-item">Brand Narrative Development</div><div class="sk-item">Content Strategy</div><div class="sk-item">Market Positioning</div><div class="sk-item">Thought Leadership</div></div></div>
+    <div class="sk rv d3"><div class="sk-icon">🎨</div><div class="sk-cat">Design &amp; Visual</div><div class="sk-items"><div class="sk-item">Adobe Illustrator</div><div class="sk-item">Brand Identity</div><div class="sk-item">Creative Direction</div><div class="sk-item">AI Animation</div><div class="sk-item">Visual Composition</div></div></div>
+    <div class="sk rv d4"><div class="sk-icon">🔬</div><div class="sk-cat">Quality Assurance</div><div class="sk-items"><div class="sk-item">QC/QA Analysis</div><div class="sk-item">ISO 9001:2015</div><div class="sk-item">Process Optimisation</div><div class="sk-item">Statistical Analysis</div><div class="sk-item">Documentation</div></div></div>
+    <div class="sk rv"><div class="sk-icon">💻</div><div class="sk-cat">Digital &amp; Virtual</div><div class="sk-items"><div class="sk-item">Virtual Assistance</div><div class="sk-item">Email &amp; Lead Marketing</div><div class="sk-item">CRM Platforms</div><div class="sk-item">Project Management Tools</div><div class="sk-item">Workflow Automation</div></div></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <canvas id="ccanvas"></canvas>
+  <div class="sl rv">Let's Connect</div>
+  <h2 class="st rv d1">Ready to <em>collaborate?</em></h2>
+  <div class="contact-grid">
+    <div>
+      <div class="contact-big rv d1">Let's turn<br>your ideas<br>into <em>words.</em></div>
+      <p class="contact-sub rv d2">Academic papers, business proposals, creative narratives, brand content, or research projects. I'd love to hear about your challenge.</p>
+      <div class="contact-links rv d3">
+        <a href="mailto:ioliseh@gmail.com" class="clink">ioliseh@gmail.com<span class="clink-lbl">Email</span><span class="clink-val">ioliseh@gmail.com</span></a>
+        <a href="tel:+2348061349287" class="clink"><span class="clink-lbl">Phone</span><span class="clink-val">+234 806 134 9287</span></a>
+        <a href="https://linkedin.com/in/iosify" target="_blank" rel="noopener" class="clink"><span class="clink-lbl">LinkedIn</span><span class="clink-val">linkedin.com/in/iosify</span></a>
+      </div>
+    </div>
+    <div class="rv d2">
+      <div class="interests">
+        <div class="int-title">Open to Collaboration On</div>
+        <div class="int-list">
+          <div class="int-item">Research &amp; Academic Collaboration</div>
+          <div class="int-item">Creative Writing &amp; Storytelling</div>
+          <div class="int-item">Art Direction &amp; Brand Narratives</div>
+          <div class="int-item">Food Art &amp; Culinary Design Content</div>
+          <div class="int-item">Speaking &amp; Workshops</div>
+          <div class="int-item">Content Strategy Projects</div>
+          <div class="int-item">Virtual Assistance &amp; Remote Roles</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2025 Oliseh Ifeanyi &middot; Academic Writer &amp; Creative Strategist &middot; Nigeria</p>
+  <div class="f-links">
+    <a href="mailto:ioliseh@gmail.com">ioliseh@gmail.com</a>
+    <a href="https://linkedin.com/in/iosify" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="oliseh-portfolio.html">Design Portfolio</a>
+    <a href="oliseh-cv.html">CV</a><a href="https://github.com/Iosify" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</footer>
+
+<script type="text/javascript">
+
+</script><script>
+document.body.classList.add('anim');
+
+window.addEventListener('scroll',function(){
+  document.getElementById('wnav').style.padding=window.scrollY>60?'11px 48px':'17px 48px';
+});
+
+// Hero canvas
+(function(){
+  var c=document.getElementById('hcanvas'),ctx=c.getContext('2d');
+  function sz(){c.width=c.offsetWidth;c.height=c.offsetHeight;}sz();
+  window.addEventListener('resize',sz);
+  var pts=[];for(var i=0;i<52;i++)pts.push({x:Math.random()*c.width,y:Math.random()*c.height,vx:(Math.random()-.5)*.38,vy:(Math.random()-.5)*.38});
+  function draw(){
+    ctx.clearRect(0,0,c.width,c.height);
+    pts.forEach(function(p){
+      p.x+=p.vx;p.y+=p.vy;
+      if(p.x<0||p.x>c.width)p.vx*=-1;if(p.y<0||p.y>c.height)p.vy*=-1;
+      ctx.beginPath();ctx.arc(p.x,p.y,1.3,0,Math.PI*2);ctx.fillStyle='rgba(45,96,153,.35)';ctx.fill();
+    });
+    for(var i=0;i<pts.length;i++)for(var j=i+1;j<pts.length;j++){
+      var d=Math.hypot(pts[i].x-pts[j].x,pts[i].y-pts[j].y);
+      if(d<100){ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);
+        ctx.strokeStyle='rgba(45,96,153,'+(0.14*(1-d/100))+')';ctx.lineWidth=.4;ctx.stroke();}
+    }
+    requestAnimationFrame(draw);
+  }draw();
+})();
+
+// Contact canvas
+(function(){
+  var c=document.getElementById('ccanvas'),ctx=c.getContext('2d');
+  function sz(){c.width=c.offsetWidth;c.height=c.offsetHeight;}sz();
+  window.addEventListener('resize',sz);
+  var pts=[];for(var i=0;i<40;i++)pts.push({x:Math.random()*c.width,y:Math.random()*c.height,vx:(Math.random()-.5)*.32,vy:(Math.random()-.5)*.32});
+  function draw(){
+    ctx.clearRect(0,0,c.width,c.height);
+    pts.forEach(function(p){
+      p.x+=p.vx;p.y+=p.vy;
+      if(p.x<0||p.x>c.width)p.vx*=-1;if(p.y<0||p.y>c.height)p.vy*=-1;
+      ctx.beginPath();ctx.arc(p.x,p.y,1.3,0,Math.PI*2);ctx.fillStyle='rgba(45,96,153,.28)';ctx.fill();
+    });
+    for(var i=0;i<pts.length;i++)for(var j=i+1;j<pts.length;j++){
+      var d=Math.hypot(pts[i].x-pts[j].x,pts[i].y-pts[j].y);
+      if(d<95){ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);
+        ctx.strokeStyle='rgba(45,96,153,'+(0.12*(1-d/95))+')';ctx.lineWidth=.35;ctx.stroke();}
+    }
+    requestAnimationFrame(draw);
+  }draw();
+})();
+
+// Stat counters — hero stats
+(function(){
+  function runCounter(el){
+    var tgt=parseInt(el.dataset.target);
+    if(!tgt)return;
+    var sfx=el.dataset.suffix||'',cur=0,step=Math.max(tgt/55,.1);
+    var t=setInterval(function(){
+      cur+=step;
+      if(cur>=tgt){el.textContent=tgt+sfx;clearInterval(t);}
+      else el.textContent=Math.floor(cur)+sfx;
+    },28);
+  }
+  setTimeout(function(){
+    var obs=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){runCounter(e.target);obs.unobserve(e.target);}
+      });
+    },{threshold:0.1});
+    document.querySelectorAll('.hst-n[data-target]').forEach(function(el){obs.observe(el);});
+  },2200);
+})();
+
+// Scroll reveal
+(function(){
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('vis');});
+  },{threshold:0,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.rv').forEach(function(el){obs.observe(el);});
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oliseh Ifeanyi — CV 2025</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FDFAF6; --bg2:#F5F0E8; --rule:#DDD0BC; --rule2:#E8E0D4;
+  --ink:#1A1410; --ink2:#3A3028; --muted:#7A7060;
+  --gold:#C49A3C; --gold-l:#DDB96A;
+  --blue:#1a3a5c; --blue-l:#2d6099;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'DM Sans',sans-serif; --mono:'DM Mono',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.6;overflow-x:hidden;}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;background:rgba(253,250,246,.96);
+  backdrop-filter:blur(12px);border-bottom:1px solid var(--rule);
+  display:flex;align-items:center;justify-content:space-between;padding:15px 48px;transition:padding .3s;}
+.nl{font-family:var(--serif);font-size:1rem;font-weight:600;color:var(--ink);text-decoration:none;}
+.nl span{color:var(--gold);font-style:italic;}
+.nm{display:flex;gap:24px;list-style:none;}
+.nm a{font-size:.68rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--muted);text-decoration:none;transition:color .2s;}
+.nm a:hover{color:var(--ink);}
+.nav-r{display:flex;gap:8px;align-items:center;}
+.nav-btn{font-size:.65rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;
+  text-decoration:none;padding:7px 16px;transition:all .2s;}
+.nav-btn.design{color:var(--gold);border:1px solid rgba(196,154,60,.35);}
+.nav-btn.design:hover{background:rgba(196,154,60,.08);}
+.nav-btn.writing{color:var(--blue-l);border:1px solid rgba(45,96,153,.3);}
+.nav-btn.writing:hover{background:rgba(45,96,153,.06);}
+.nav-btn.dl{background:var(--ink);color:white;border:1px solid var(--ink);}
+.nav-btn.dl:hover{background:var(--ink2);}
+
+/* ── HERO / HEADER ── */
+.cv-header{padding:100px 48px 0;max-width:1000px;margin:0 auto;}
+.cv-name{font-family:var(--serif);font-size:clamp(42px,6vw,80px);font-weight:600;
+  line-height:.9;letter-spacing:-.02em;color:var(--ink);margin-bottom:6px;}
+.cv-name em{font-style:italic;color:var(--gold);font-weight:300;}
+.cv-title{font-size:.82rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:24px;}
+.cv-contact-row{display:flex;flex-wrap:wrap;gap:0;border:1px solid var(--rule);
+  margin-bottom:32px;}
+.cv-contact-item{flex:1;min-width:160px;padding:12px 18px;
+  border-right:1px solid var(--rule);text-decoration:none;transition:background .2s;}
+.cv-contact-item:last-child{border-right:none;}
+.cv-contact-item:hover{background:var(--bg2);}
+.ci-lbl{font-size:.58rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:3px;}
+.ci-val{font-size:.85rem;color:var(--ink);}
+
+/* ── PORTFOLIO BUTTONS ── */
+.portfolio-strip{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:36px;align-items:center;}
+.port-lbl{font-size:.65rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted);margin-right:6px;}
+.port-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;
+  text-decoration:none;font-size:.72rem;font-weight:500;letter-spacing:.1em;
+  text-transform:uppercase;transition:all .25s;}
+.port-btn.design{background:var(--gold);color:var(--ink);}
+.port-btn.design:hover{background:var(--gold-l);transform:translateY(-2px);box-shadow:0 6px 20px rgba(196,154,60,.3);}
+.port-btn.writing{background:var(--blue);color:white;}
+.port-btn.writing:hover{background:var(--blue-l);transform:translateY(-2px);box-shadow:0 6px 20px rgba(45,96,153,.3);}
+.port-note{font-size:.68rem;color:var(--muted);font-style:italic;}
+
+/* ── METRICS ── */
+.metrics-row{display:flex;gap:0;border:1px solid var(--rule);margin-bottom:48px;}
+.metric{flex:1;text-align:center;padding:16px 10px;border-right:1px solid var(--rule);}
+.metric:last-child{border-right:none;}
+.metric-n{font-family:var(--serif);font-size:2rem;font-weight:600;color:var(--ink);display:block;}
+.metric-l{font-size:.58rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);}
+
+/* ── MAIN CONTENT GRID ── */
+.cv-body{display:grid;grid-template-columns:280px 1fr;gap:48px;
+  max-width:1000px;margin:0 auto;padding:0 48px 80px;}
+
+/* ── LEFT SIDEBAR ── */
+.cv-sidebar{padding-top:4px;}
+
+/* ── SECTION HEADS ── */
+.sec-h{font-size:.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--gold);display:flex;align-items:center;gap:8px;margin-bottom:10px;margin-top:32px;}
+.sec-h::after{content:'';flex:1;height:1px;background:var(--gold);opacity:.4;}
+.sec-h:first-child{margin-top:0;}
+
+/* Skills */
+.skill-group{margin-bottom:18px;}
+.skill-cat{font-size:.7rem;font-weight:600;color:var(--ink);margin-bottom:5px;}
+.skill-tags{display:flex;flex-wrap:wrap;gap:4px;}
+.stag{font-size:.63rem;padding:3px 8px;background:var(--bg2);border:1px solid var(--rule);
+  color:var(--ink2);}
+
+/* Core skills */
+.core-item{margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--rule2);}
+.core-item:last-child{border-bottom:none;}
+.core-skill{font-size:.75rem;font-weight:600;color:var(--ink);margin-bottom:3px;}
+.core-desc{font-size:.75rem;color:var(--muted);line-height:1.5;}
+
+/* Adjacent skills */
+.adj-item{display:flex;align-items:flex-start;gap:7px;margin-bottom:8px;
+  font-size:.78rem;color:var(--muted);line-height:1.5;}
+.adj-item::before{content:'→';color:var(--gold);font-family:var(--serif);flex-shrink:0;font-size:.85rem;}
+
+/* Education */
+.edu-item{margin-bottom:14px;}
+.edu-deg{font-size:.82rem;font-weight:600;color:var(--ink);}
+.edu-inst{font-size:.75rem;color:var(--muted);margin-top:2px;}
+.edu-grade{font-size:.72rem;color:var(--muted);font-style:italic;}
+
+/* ── RIGHT MAIN COLUMN ── */
+.cv-main{}
+
+/* Experience */
+.exp-item{margin-bottom:28px;padding-bottom:28px;border-bottom:1px solid var(--rule2);}
+.exp-item:last-child{border-bottom:none;margin-bottom:0;}
+.exp-header{display:flex;justify-content:space-between;align-items:flex-start;
+  margin-bottom:3px;gap:16px;}
+.exp-role{font-family:var(--serif);font-size:1.1rem;font-weight:600;color:var(--ink);line-height:1.2;}
+.exp-period{font-size:.72rem;color:var(--muted);white-space:nowrap;font-family:var(--mono);flex-shrink:0;}
+.exp-co{font-size:.75rem;color:var(--blue-l);margin-bottom:10px;}
+.exp-pts{list-style:none;display:flex;flex-direction:column;gap:5px;}
+.exp-pts li{display:flex;align-items:flex-start;gap:8px;font-size:.82rem;
+  color:var(--ink2);line-height:1.6;}
+.exp-pts li::before{content:'';width:4px;height:4px;background:var(--gold);
+  border-radius:50%;flex-shrink:0;margin-top:6px;}
+
+/* Certifications */
+.cert-list{display:flex;flex-direction:column;gap:2px;}
+.cert-item{padding:10px 14px;background:var(--bg2);border:1px solid var(--rule2);
+  border-left:3px solid var(--rule);transition:border-color .2s;}
+.cert-item:hover{border-left-color:var(--gold);}
+.cert-item.featured{border-left-color:var(--gold);background:rgba(196,154,60,.04);}
+.cert-name{font-size:.82rem;font-weight:500;color:var(--ink);}
+.cert-meta{font-size:.72rem;color:var(--muted);margin-top:2px;}
+.cert-skills{font-size:.68rem;color:var(--muted);margin-top:5px;font-style:italic;}
+
+/* References */
+.ref-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.ref-item{padding:14px 16px;background:var(--bg2);border:1px solid var(--rule2);}
+.ref-name{font-size:.82rem;font-weight:600;color:var(--ink);margin-bottom:3px;}
+.ref-role{font-size:.72rem;color:var(--muted);margin-bottom:6px;line-height:1.4;}
+.ref-phone{font-size:.78rem;font-weight:500;color:var(--blue-l);}
+
+/* ── FOOTER ── */
+.cv-footer{background:var(--ink);padding:20px 48px;display:flex;
+  align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+.cv-footer p{font-size:.68rem;color:var(--muted);}
+.cf-links{display:flex;gap:20px;}
+.cf-links a{font-size:.63rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);text-decoration:none;transition:color .2s;}
+.cf-links a:hover{color:var(--gold);}
+
+/* Print styles */
+@media print{
+  nav,.cv-footer{display:none;}
+  .cv-header{padding-top:20px;}
+  body{background:white;}
+  .port-btn{box-shadow:none;}
+}
+
+/* ── REVEAL ── */
+.rv{opacity:1;transform:none;transition:opacity .65s ease,transform .65s cubic-bezier(.16,1,.3,1);}
+.anim .rv{opacity:0;transform:translateY(20px);}
+.rv.vis,.anim .rv.vis{opacity:1;transform:none;}
+.rv.d1{transition-delay:.1s;}.rv.d2{transition-delay:.2s;}.rv.d3{transition-delay:.3s;}
+
+@media(max-width:800px){
+  nav{padding:12px 20px;}.nm{display:none;}
+  .cv-header{padding:80px 20px 0;}
+  .cv-body{grid-template-columns:1fr;gap:24px;padding:0 20px 60px;}
+  .ref-grid{grid-template-columns:1fr;}
+  .metrics-row{flex-wrap:wrap;}
+  .metric{min-width:50%;}
+}
+</style>
+</head>
+<body>
+
+<nav id="cvnav">
+  <a href="#" class="nl">Studio<span>Oliseh</span></a>
+  <ul class="nm">
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#certifications">Certifications</a></li>
+    <li><a href="#references">References</a></li>
+  </ul>
+  <div class="nav-r">
+    <a href="oliseh-portfolio.html" class="nav-btn design">🎨 Design</a>
+    <a href="oliseh-writing-portfolio.html" class="nav-btn writing">✍️ Writing</a>
+    <a href="https://iosify.github.io/ios/Oliseh-Ifeanyi-CV-2025.pdf" download class="nav-btn dl">↓ PDF</a>
+  </div>
+</nav>
+
+<!-- ── HEADER ── -->
+<div class="cv-header">
+  <div class="rv">
+    <div class="cv-name">Oliseh <em>Ifeanyi</em></div>
+    <div class="cv-title">Print Graphic Designer &nbsp;·&nbsp; Academic Writer &nbsp;·&nbsp; QC/QA Analyst</div>
+  </div>
+
+  <!-- Contact row -->
+  <div class="cv-contact-row rv d1">
+    <a href="mailto:ioliseh@gmail.com" class="cv-contact-item">ioliseh@gmail.com<div class="ci-lbl">Email</div>
+      <div class="ci-val">ioliseh@gmail.com</div>
+    </a>
+    <a href="tel:+2348061349287" class="cv-contact-item">
+      <div class="ci-lbl">Phone</div>
+      <div class="ci-val">+234 806 134 9287</div>
+    </a>
+    <a href="https://linkedin.com/in/iosify" target="_blank" rel="noopener" class="cv-contact-item">
+      <div class="ci-lbl">LinkedIn</div>
+      <div class="ci-val">linkedin.com/in/iosify</div>
+    </a>
+    <div class="cv-contact-item">
+      <div class="ci-lbl">Location</div>
+      <div class="ci-val">Sango Ota, Ogun State, Nigeria</div>
+    </div>
+  </div>
+
+  <!-- Portfolio buttons — PROMINENT, first -->
+  <div class="portfolio-strip rv d2">
+    <span class="port-lbl">Portfolios:</span>
+    <a href="oliseh-portfolio.html" class="port-btn design">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+      Design Portfolio
+    </a>
+    <a href="oliseh-writing-portfolio.html" class="port-btn writing">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+      Writing Portfolio
+    </a>
+    <span class="port-note">Click to view live work and projects</span>
+  </div>
+
+  <!-- Key metrics -->
+  <div class="metrics-row rv d2">
+    <div class="metric"><span class="metric-n" data-target="4" data-suffix="+">0</span><span class="metric-l">Years Experience</span></div>
+    <div class="metric"><span class="metric-n" data-target="40" data-suffix="+">0</span><span class="metric-l">Happy Clients</span></div>
+    <div class="metric"><span class="metric-n" data-target="50" data-suffix="+">0</span><span class="metric-l">Projects Delivered</span></div>
+    <div class="metric"><span class="metric-n" data-target="30" data-suffix="+">0</span><span class="metric-l">Papers Written</span></div>
+    <div class="metric"><span class="metric-n">0%</span><span class="metric-l">Plagiarism</span></div>
+  </div>
+</div>
+
+<!-- ── BODY GRID ── -->
+<div class="cv-body">
+
+  <!-- ════ LEFT SIDEBAR ════ -->
+  <aside class="cv-sidebar">
+
+    <!-- Technical Skills -->
+    <div id="skills">
+      <div class="sec-h">Technical Skills</div>
+      <div class="skill-group rv">
+        <div class="skill-cat">Design Tools</div>
+        <div class="skill-tags">
+          <span class="stag">Adobe Illustrator</span><span class="stag">CorelDraw</span>
+          <span class="stag">Canva</span><span class="stag">AI Animation</span>
+        </div>
+      </div>
+      <div class="skill-group rv d1">
+        <div class="skill-cat">Print &amp; Brand</div>
+        <div class="skill-tags">
+          <span class="stag">Logo Design</span><span class="stag">Brand Identity</span>
+          <span class="stag">Flex Banners</span><span class="stag">Packaging</span>
+        </div>
+      </div>
+      <div class="skill-group rv d1">
+        <div class="skill-cat">Academic Writing</div>
+        <div class="skill-tags">
+          <span class="stag">APA</span><span class="stag">Harvard</span>
+          <span class="stag">MLA</span><span class="stag">Chicago</span>
+        </div>
+      </div>
+      <div class="skill-group rv d2">
+        <div class="skill-cat">QC/QA &amp; Tech</div>
+        <div class="skill-tags">
+          <span class="stag">ISO 9001:2015</span><span class="stag">GSM Testing</span>
+          <span class="stag">Statistical Analysis</span><span class="stag">MS Office</span>
+        </div>
+      </div>
+      <div class="skill-group rv d2">
+        <div class="skill-cat">Digital &amp; Virtual</div>
+        <div class="skill-tags">
+          <span class="stag">Virtual Assistance</span><span class="stag">Email Marketing</span>
+          <span class="stag">Lead Generation</span><span class="stag">CRM</span>
+          <span class="stag">Workflow Automation</span><span class="stag">Upwork</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Core Professional Skills -->
+    <div class="sec-h">Core Skills</div>
+    <div class="rv">
+      <div class="core-item">
+        <div class="core-skill">Creativity</div>
+        <div class="core-desc">Brand identity systems, AI animation, visual problem-solving</div>
+      </div>
+      <div class="core-item">
+        <div class="core-skill">Problem-Solving</div>
+        <div class="core-desc">Translating complex briefs into clear strategic visual outputs</div>
+      </div>
+      <div class="core-item">
+        <div class="core-skill">Collaboration</div>
+        <div class="core-desc">End-to-end client management, 40+ satisfied clients</div>
+      </div>
+      <div class="core-item">
+        <div class="core-skill">Communication</div>
+        <div class="core-desc">Written, visual and verbal storytelling across all media</div>
+      </div>
+    </div>
+
+    <!-- Adjacent Skills -->
+    <div class="sec-h">Adjacent Skills</div>
+    <div class="rv">
+      <div class="adj-item">QA &amp; ISO compliance in print production</div>
+      <div class="adj-item">Physics background: precision, data analysis, materials</div>
+      <div class="adj-item">Academic research &amp; evidence-based content</div>
+      <div class="adj-item">Appointment scheduling, telehealth, credentialing</div>
+      <div class="adj-item">Airbnb and itinerary management</div>
+    </div>
+
+    <!-- Education -->
+    <div class="sec-h">Education</div>
+    <div class="rv">
+      <div class="edu-item">
+        <div class="edu-deg">B.Tech Physics Electronics</div>
+        <div class="edu-inst">Federal University of Technology, Akure</div>
+        <div class="edu-inst">Ondo State &nbsp;·&nbsp; 2015–2021</div>
+        <div class="edu-grade">Second Class Lower (2.2)</div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-deg">SSCE</div>
+        <div class="edu-inst">Command Day Secondary School, Oshodi</div>
+        <div class="edu-inst">Lagos State &nbsp;·&nbsp; 2003–2009</div>
+      </div>
+    </div>
+
+  </aside>
+
+  <!-- ════ MAIN COLUMN ════ -->
+  <main class="cv-main">
+
+    <!-- Professional Summary -->
+    <div class="sec-h">Professional Summary</div>
+    <p class="rv" style="font-size:.87rem;color:var(--ink2);line-height:1.85;margin-bottom:28px;border-left:2px solid var(--gold);padding-left:16px;">
+      Cross-disciplinary creative professional with 4+ years of experience in Graphic Design and Academic Writing, complemented by Quality Assurance and Digital Skills expertise. Proven track record delivering visually compelling brand assets and rigorous written content. Core strengths: trend-aware design, deadline-driven execution, zero hallucinated citations, and strict adherence to brand and technical specifications.
+    </p>
+
+    <!-- Experience -->
+    <div id="experience" class="sec-h">Experience</div>
+    <div class="exp-item rv">
+      <div class="exp-header">
+        <div class="exp-role">Graphic Designer — Freelance</div>
+        <div class="exp-period">Jan 2022 – Present</div>
+      </div>
+      <div class="exp-co"><a href="oliseh-portfolio.html" style="color:inherit;text-decoration:none;border-bottom:1px dotted rgba(45,96,153,.4);">Remote · Self-Employed → View Portfolio</a></div>
+      <ul class="exp-pts">
+        <li>50+ brand projects across F&B, beauty, events, and professional services sectors</li>
+        <li>Full brand identity system for Fluffy Treats by Lydia — logo, packaging, merch, 3D signage, brand guidelines</li>
+        <li>AI-animated brand content alongside print collateral for 40+ satisfied clients</li>
+        <li>100% on-time delivery rate across all concurrent client engagements</li>
+      </ul>
+    </div>
+    <div class="exp-item rv">
+      <div class="exp-header">
+        <div class="exp-role">Academic Writer — Freelance</div>
+        <div class="exp-period">Mar 2022 – Present</div>
+      </div>
+      <div class="exp-co"><a href="oliseh-writing-portfolio.html" style="color:inherit;text-decoration:none;border-bottom:1px dotted rgba(45,96,153,.4);">Remote · Self-Employed → View Portfolio</a></div>
+      <ul class="exp-pts">
+        <li>30+ research papers, essays, and reports — zero plagiarism, zero hallucinated citations</li>
+        <li>Specialisations: Linguistics &amp; Pragmatics, Neurodiversity Research, Business Proposals</li>
+        <li>APA, Harvard, MLA, Chicago — all citation styles with error-free record</li>
+        <li>Developing the Neuro-Cultural Agility Framework for multinational team leadership</li>
+      </ul>
+    </div>
+    <div class="exp-item rv">
+      <div class="exp-header">
+        <div class="exp-role">QA &amp; Control Analyst</div>
+        <div class="exp-period">Feb 2023 – Present</div>
+      </div>
+      <div class="exp-co">Aristocrat Industries Limited · Sango Ota, Ogun State</div>
+      <ul class="exp-pts">
+        <li>100% client spec conformity maintained across all print production batches</li>
+        <li>Ink GSM testing, shade card compliance, lamination and bonding QA performed daily</li>
+        <li>ISO 9001:2015-aligned documentation and process optimisation records maintained</li>
+      </ul>
+    </div>
+    <div class="exp-item rv">
+      <div class="exp-header">
+        <div class="exp-role">Graphic Designer</div>
+        <div class="exp-period">Aug 2021 – Jan 2022</div>
+      </div>
+      <div class="exp-co">Goldmender Nigeria Limited · Akure, Ondo State</div>
+      <ul class="exp-pts">
+        <li>15+ brand design projects using Adobe Illustrator for marketing and sales teams</li>
+        <li>Managed print vendor relationships ensuring QA standards across all deliverables</li>
+      </ul>
+    </div>
+    <div class="exp-item rv">
+      <div class="exp-header">
+        <div class="exp-role">Graphic Designer</div>
+        <div class="exp-period">Jan 2021 – Aug 2021</div>
+      </div>
+      <div class="exp-co">Onside Nigeria · Remote</div>
+      <ul class="exp-pts">
+        <li>Social media content, infographics, and brand communication across digital platforms</li>
+      </ul>
+    </div>
+    <div class="exp-item rv">
+      <div class="exp-header">
+        <div class="exp-role">QC &amp; Material Inventory Officer (SIWES)</div>
+        <div class="exp-period">Mar 2019 – Jan 2020</div>
+      </div>
+      <div class="exp-co">Crownpack Nigeria Limited · Sango Ota, Ogun State</div>
+      <ul class="exp-pts">
+        <li>Raw materials compliance checks, inventory reconciliation, finished goods inspection</li>
+      </ul>
+    </div>
+
+    <!-- Certifications -->
+    <div id="certifications" class="sec-h">Certifications</div>
+    <div class="cert-list rv">
+      <div class="cert-item featured">
+        <div class="cert-name">In-Demand IT Skills Training</div>
+        <div class="cert-meta">Digital Witch Support Community &nbsp;·&nbsp; Feb 2026 &nbsp;·&nbsp; ID: DWSC18584</div>
+        <div class="cert-skills">Virtual Assistance, Customer Service, Technical Support, Technical Sales, Telemarketing, Email Marketing, Lead Generation, Email Management, Account Management, Workflow Automation, Calendar Management, Cold Calling, Project Management Tools, CRM, Upwork, Appointment Scheduling, Telehealth &amp; Credentialing, Airbnb &amp; Itinerary Management</div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-name">Agile &amp; Scrum Masterclass</div>
+        <div class="cert-meta">Certification Edge &nbsp;·&nbsp; June 2024</div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-name">Diploma in Workplace Safety &amp; Health</div>
+        <div class="cert-meta">Alison Online Course &nbsp;·&nbsp; May 2023</div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-name">ISO 9001:2015 Quality Management System</div>
+        <div class="cert-meta">Alison Online Course &nbsp;·&nbsp; April 2023</div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-name">Risk Assessment &amp; Control — Health &amp; Safety</div>
+        <div class="cert-meta">Alison Online Course &nbsp;·&nbsp; April 2023</div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-name">National Youth Service Corps (NYSC)</div>
+        <div class="cert-meta">Ebonyi State &nbsp;·&nbsp; February 2023</div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-name">Nigerian Red Cross Society First Aid</div>
+        <div class="cert-meta">Abakaliki Chapter &nbsp;·&nbsp; March 2022</div>
+      </div>
+    </div>
+
+    <!-- References -->
+    <div id="references" class="sec-h">References</div>
+    <div class="ref-grid rv">
+      <div class="ref-item">
+        <div class="ref-name">Dr. Mrs. N. Adesiji</div>
+        <div class="ref-role">Lecturer, Federal University of Technology Akure, Ondo State</div>
+        <div class="ref-phone">0806 448 6870</div>
+      </div>
+      <div class="ref-item">
+        <div class="ref-name">Mr. Ndimele Chibueze</div>
+        <div class="ref-role">QC &amp; Assurance Manager, Aristocrat Industries Limited, Ogun State</div>
+        <div class="ref-phone">0810 668 7923</div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- ── FOOTER ── -->
+<div class="cv-footer">
+  <p>&copy; 2025 Oliseh Ifeanyi &nbsp;·&nbsp; <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="4b22242722382e230b2c262a222765282426">ioliseh@gmail.com</a> &nbsp;·&nbsp; +234 806 134 9287</p>
+  <div class="cf-links">
+    <a href="mailto:ioliseh@gmail.com">ioliseh@gmail.com</a>
+    <a href="https://linkedin.com/in/iosify" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="oliseh-portfolio.html">Design Portfolio</a>
+    <a href="oliseh-writing-portfolio.html">Writing Portfolio</a>
+    <a href="https://iosify.github.io/ios/Oliseh-Ifeanyi-CV-2025.pdf" download>Download PDF</a>
+  </div>
+</div><script>
+document.body.classList.add('anim');
+
+window.addEventListener('scroll',function(){
+  document.getElementById('cvnav').style.padding=window.scrollY>60?'10px 48px':'15px 48px';
+});
+
+// Metric counters
+(function(){
+  function runCounter(el){
+    var tgt=parseInt(el.dataset.target),sfx=el.dataset.suffix||'',cur=0,step=Math.max(tgt/55,.1);
+    var t=setInterval(function(){
+      cur+=step;
+      if(cur>=tgt){el.textContent=tgt+sfx;clearInterval(t);}
+      else el.textContent=Math.floor(cur)+sfx;
+    },28);
+  }
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){runCounter(e.target);obs.unobserve(e.target);}
+    });
+  },{threshold:0.1,rootMargin:'0px 0px -20px 0px'});
+  document.querySelectorAll('.metric-n[data-target]').forEach(function(el){obs.observe(el);});
+})();
+
+// Scroll reveal
+(function(){
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('vis');});
+  },{threshold:0,rootMargin:'0px 0px -30px 0px'});
+  document.querySelectorAll('.rv').forEach(function(el){obs.observe(el);});
+})();
+</script>
+</body>
+</html>
